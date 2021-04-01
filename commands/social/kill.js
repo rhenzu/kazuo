@@ -16,11 +16,10 @@ module.exports = {
             'https://c.tenor.com/I_msiNVliZ4AAAAM/wasted-haikyuu.gif',]
    
    if(target){
-  const targetMember = message.guild.members.cache.get(target.id)
+  const targetMember = target.id
    const r = Math.floor(Math.random()*k.length)
   const embed = new discord.MessageEmbed()
-  .setTitle(`You killed @${target.username}`)
-  .setDescription('')
+  .setDescription(`**You Killed**: <@${targetMember}>`)
   .setImage(k[r])
   .setColor('RANDOM')
   .setFooter('')

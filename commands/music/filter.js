@@ -1,4 +1,5 @@
 const distube = require("distube");
+const d = require('discord.js')
 module.exports = {
   alias: ["fr"],
   description:
@@ -10,6 +11,9 @@ module.exports = {
       if (!args.length) return message.channel.send('Please specify the filter you want to add')
     const filter = args.join(" ");
     client.distube.setFilter(message, filter);
-    message.channel.send("Filter set to " + filter);
+    let filt = new d.MessageEmbed()
+    .setTitle('Filter setted to 🎧: '+ filter)
+    .setColor('PURPLE')
+    message.channel.send(filt)
   }
 };

@@ -4,6 +4,38 @@ const coinsCache = {};
 
 module.exports = client => {};
 
+
+module.exports.removeCoins = async (guildId, userId, coins) => {
+  return await mongo().then(async mongoose => {
+    try {
+      const result = await profileSchema.findOneAndUpdate(
+        {
+          guildId,
+          userId
+        },
+        {
+          guildId,
+          userId,
+          $dec: {
+            coins
+          }
+        },
+        {
+          upsert: true,
+          new: true
+        }
+      );
+      
+      return result.coins;
+    } finally {
+      mongoose.connection.close();
+    }
+  });
+};
+
+
+
+
 module.exports.addCoins = async (guildId, userId, coins) => {
   return await mongo().then(async mongoose => {
     try {

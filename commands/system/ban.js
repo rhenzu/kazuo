@@ -8,10 +8,11 @@ category: 'System',
   callback:({message, args, text, instance, channel})=>{
     
   const target = message.mentions.users.first()
+  if(target.bot) return message.channel.send('Not a valid user¡')
   if(target){
-  const targetMember = message.guild.members.cache.get(target.id)
+  const targetMember = target.id
   targetMember.ban()
-    message.channel.send('Successfully Banned '+target.username)
+    message.channel.send('Successfully Banned '+targetMember)
   }else{
     message.channel.send('Invalid!, Please Specify')
 }

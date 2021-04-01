@@ -1,3 +1,4 @@
+const discord = require ('discord.js')
 module.exports = {
   aliases: ['pause'],
   description:'Pauses the song',
@@ -6,7 +7,10 @@ module.exports = {
     const voiceChannel = message.member.voice.channel;
     if(!voiceChannel) return message.channel.send('You are not in a voice channel to pause music')
     client.distube.pause(message)
-    message.channel.send('Music is paused')
+    let paused = new discord.MessageEmbed()
+    .setTitle('Paused ⏸️')
+    .setColor('ORANGE')
+    message.channel.send(paused)
     
     
     

@@ -1,4 +1,5 @@
 const distube = require('distube')
+const discord = require('discord.js')
 module.exports ={
   alias: ['randomize'],
   description: 'Shuffles the current queue',
@@ -9,7 +10,10 @@ module.exports ={
     
     
     client.distube.shuffle(message)
-    message.channel.send('Shuffled!')
+    let shuffle = new discord.MessageEmbed()
+    .setTitle('Shuffled 🔀')
+    .setColor('#bae1ff')
+    message.channel.send(shuffle)
     
   }
   

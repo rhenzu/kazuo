@@ -11,34 +11,45 @@ const client = new DiscordJS.Client({
   partials: ['MESSAGE', 'REACTION'],
 })
 client.on('ready', () => {
-  client.user.setActivity('LOL', {type:'PLAYING'})
+  client.user.setActivity('!help', {type:'LISTENING'})
   console.log('ready')
   
   const distube = require('distube')
-  client.distube = new distube(client, {searchSongs: false, emitNewSongOnly: true, leaveOnFinish: true, youtubeDL: true, updateYouTubeDL: true})
+  client.distube = new distube(client, {searchSongs: false, emitNewSongOnly: true, leaveOnFinish: false, leaveOnEmpty: false, youtubeDL: true, updateYouTubeDL: true})
     
     
-    
-  const status = (queue) => `Volume: \`${queue.volume}%\` | Filter: \`${queue.filter || "Off"}\` | Loop: \`${queue.repeatMode ? queue.repeatMode == 2 ? "All Queue" : "This Song" : "Off"}\` | Autoplay: \`${queue.autoplay ? "On" : "Off"}\``;
+ const status = (queue) => `Volume: \`${queue.volume}%\` | Filter: \`${queue.filter || "Off"}\` | Loop: \`${queue.repeatMode ? queue.repeatMode == 2 ? "All Queue" : "This Song" : "Off"}\` | Autoplay: \`${queue.autoplay ? "On" : "Off"}\``;
+
+  
+  
   client.distube
-    .on("playSong", (message, queue, song) => message.channel.send(
-        `Playing \`${song.name}\` - \`${song.formattedDuration}\`\nRequested by: ${song.user}`
-    ))
-    .on("addSong", (message, queue, song) => message.channel.send(
-        `Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`
-    ))
+  .on("initQueue", queue=>{
+    queue.autoplay = false;
+    queue.volume = 70;
+    
+  })
+    .on("playSong", (message, queue, song) => {
+        let playing = new DiscordJS.MessageEmbed()
+  .setTitle('Playing ▶️')
+  .setDescription(`**Song Title**: \ ${song.title}\n\n🕛**Duration**: \ ${song.formattedDuration}\n\n🔴**Live**: \ ${song.isLive}\n\n👍**Likes**: \ ${song.likes} \ | \ 👎**Dislikes**: \ ${song.dislikes}\n\n🔥**Views**: \ ${song.views}`)
+  .setImage(`${song.thumbnail}`)
+  .setColor('GREEN')
+  .setFooter(`by: \ ${song.user.tag}`)
+        message.channel.send(playing)})
+    .on("addSong", (message, queue, song) => {
+        let added = new DiscordJS.MessageEmbed()
+  .setTitle('Added to Queue ➡️')
+  .setDescription(`**Song Title**: \ ${song.title}\n\n🕛: \ ${song.formattedDuration}\n\n🔴: \ ${song.isLive}\n\n👍: \ ${song.likes} \ | \ 👎: \ ${song.dislikes}\n\n🔥: \ ${song.views}`)
+  .setImage(`${song.thumbnail}`)
+  .setColor('YELLOW')
+  .setFooter(`added by: \ ${song.user.tag}`)
+        message.channel.send(added)})
     .on("playList", (message, queue, playlist, song) => message.channel.send(
         `Play \`${playlist.name}\` playlist (${playlist.songs.length} songs).\nRequested by: ${song.user}\nNow playing \`${song.name}\` - \`${song.formattedDuration}\`\n${status(queue)}`
     ))
   .on("addList", (message, queue, playlist) => message.channel.send(
         `Added \`${playlist.name}\` playlist (${playlist.songs.length} songs) to queue\n${status(queue)}`
     ))
-  .on("finish", message =>  message.channel.send("No more song in queue"))
-  .on("empty", message => message.channel.send("Channel is empty. Leaving the channel"))
-   .on("initQueue", queue => {
-       queue.autoPlay = false;
-       queue.volume = 50;
-  })
        
   
   

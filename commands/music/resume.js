@@ -1,3 +1,4 @@
+const discord = require('discord.js')
 module.exports = {
   aliases: ['continue'],
   description:'Resumes the song current song',
@@ -6,7 +7,11 @@ module.exports = {
     const voiceChannel = message.member.voice.channel;
     if(!voiceChannel) return message.channel.send('You are not in a voice channel to resume music')
     client.distube.resume(message)
-    message.channel.send('Music is now resumed')
+    let resume = new discord.MessageEmbed()
+    .setTitle('Resumed ▶️')
+    .setColor('#bbff4d')
+    
+    message.channel.send(resume)
    }
   }
   
