@@ -24,7 +24,8 @@
     "@distube/ytdl": "^2.0.4",
     "@distube/ytpl": "^1.0.10",
     "@distube/ytsr": "^1.0.8",
-    "ytdl-core": "^4.4.5"
+    "ytdl-core": "^4.4.5",
+    "waifur": "^1.0.2"
   },
   "engines": {
     "node": "12.x"
