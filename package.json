@@ -25,7 +25,10 @@
     "@distube/ytpl": "^1.0.10",
     "@distube/ytsr": "^1.0.8",
     "ytdl-core": "^4.4.5",
-    "waifur": "^1.0.2"
+    "waifur": "^1.0.2",
+    "genius-lyrics-api": "^3.0.6",
+    "anime-character-random": "^1.0.2",
+    "mal-scraper": "^2.11.3"
   },
   "engines": {
     "node": "12.x"

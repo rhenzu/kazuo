@@ -11,6 +11,7 @@ category: 'Social',
     let url = `https://g.tenor.com/v1/search?q=${keywords}&key=LIVDSRZULELA&ContentFilter=HIGH`;
     let response = await fetch(url);
     let json = await response.json();
+    console.log(json)
     const index = Math.floor(Math.random()*json.results.length);
     message.reply("Here's your random "+keywords)
     message.channel.send(json.results[index].url);

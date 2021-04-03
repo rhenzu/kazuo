@@ -1,4 +1,5 @@
-
+var interval;
+const malScraper = require('mal-scraper')
 const DiscordJS = require('discord.js')
 const WOKCommands = require('wokcommands')
 const fetch = require('node-fetch')
@@ -13,6 +14,7 @@ const client = new DiscordJS.Client({
 client.on('ready', () => {
   client.user.setActivity('!help', {type:'LISTENING'})
   console.log('ready')
+  
   
   const distube = require('distube')
   client.distube = new distube(client, {searchSongs: false, emitNewSongOnly: true, leaveOnFinish: false, leaveOnEmpty: false, youtubeDL: true, updateYouTubeDL: true})
