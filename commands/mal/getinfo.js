@@ -11,7 +11,6 @@ module.exports={
     
     
 malScraper.getInfoFromName(name).then((data) => {
-  console.log(data)
   
   const ind = Math.floor(Math.random()*data.characters.length)
   
@@ -29,7 +28,10 @@ malScraper.getInfoFromName(name).then((data) => {
     {name: 'Duration', value: `${data.duration}`},
     {name:'Genre', value: `${data.genres}`},
     {name: 'Type', value: `${data.type}`},
-    {name: "Here's a random character from this anime:", value: `**Name:** ${data.characters[ind].name} \ | \ **Role:** ${data.characters[ind].role}`},
+    {name: "Here's a random character from this anime:", value: '————————————————————'},
+    {name: "Name", value: `${data.characters[ind].name}`},
+    {name: "Seiyuu", value: `${data.characters[ind].seiyuu.name}`},
+    {name: "Role", value: `${data.characters[ind].role}`},
   )
   .setColor('RANDOM')
   

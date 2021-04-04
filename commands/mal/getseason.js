@@ -7,7 +7,8 @@ module.exports={
 
 malScraper.getSeason(year, season)
   .then((data) =>{
-  message.channel.send(`**Anime - ${season} - ${year}:**\n`+data.TV.map((data, id, year, season) => ` **${id+1}**. **${data.title}** - \ \`${data.releaseDate}\``).join("\n"), {split:true,})
+  const ses = season.toUpperCase()
+  message.channel.send(`**ANIME - ${ses} - ${year}:**\n`+data.TV.map((data, id) => ` **${id+1}**. **${data.title}** - \ \`${data.releaseDate}\``).join("\n"), {split:true,})
 
   
   
