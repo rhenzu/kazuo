@@ -4,8 +4,11 @@ dependencies:
   '@distube/ytdl': 2.0.5
   '@distube/ytpl': 1.0.11
   '@distube/ytsr': 1.0.8
+  acb-api: 1.3.6
+  akaneko: 4.5.3
   anime-character-random: 1.0.3
   discord.js: 12.5.1
+  discord.js-pagination: 1.0.3
   distube: 2.8.11
   express: 4.17.1
   ffmpeg-static: 4.2.7
@@ -228,6 +231,13 @@ packages:
       node: '>=6.5'
     resolution:
       integrity: sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==
+  /acb-api/1.3.6:
+    dependencies:
+      axios: 0.21.1
+      cheerio: 1.0.0-rc.5
+    dev: false
+    resolution:
+      integrity: sha512-UJoxAndxs7VAMi2wgyoeS2csaidIoxl/iNFaOehVzthLoNJ/3WxSDVDDCsFMWF/CwFzzTJcVsA+c3C94hrVQnA==
   /accepts/1.3.7:
     dependencies:
       mime-types: 2.1.26
@@ -284,6 +294,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==
+  /akaneko/4.5.3:
+    dependencies:
+      node-fetch: 2.6.1
+    dev: false
+    resolution:
+      integrity: sha512-1YIqaQiV1c/jz/4MuquS175qy6sp9qVDvHFmL//Z8GjkPbGUJkd+qpT+Oy8CXsUAPD2vlvkq8zRawHbVHD+Wog==
   /anime-character-random/1.0.3:
     dev: false
     resolution:
@@ -833,6 +849,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-AD1hi7iVJ8OD0aMLQU5VK0XH9LDlA1+BcPIgrAxPfaibx2DbWucuyOhc4oyQCbnvDDO68nN6/LcKfqTP343Jjg==
+  /discord.js-pagination/1.0.3:
+    dev: false
+    resolution:
+      integrity: sha512-n6wuNo3CclZdwRfc5LMInjcrN23iKnKQTtlpX3VXGRtNofawBeQroYhl7xotSmpkIlL2Uqwo13T11+hHdNJ/bQ==
   /discord.js/12.5.1:
     dependencies:
       '@discordjs/collection': 0.1.6
@@ -3422,8 +3442,11 @@ specifiers:
   '@distube/ytdl': ^2.0.4
   '@distube/ytpl': ^1.0.10
   '@distube/ytsr': ^1.0.8
+  acb-api: ^1.3.5
+  akaneko: ^4.5.3
   anime-character-random: ^1.0.2
   discord.js: ^12.5.1
+  discord.js-pagination: ^1.0.1
   distube: ^2.8.11
   express: ^4.17.1
   ffmpeg-static: ^4.2.7
