@@ -1,6 +1,6 @@
 module.exports={
   description: 'Random Art',
-  category: "```Rhenzu's Personal Commands```",
+  category: "OwnerPersonalCommands",
   callback: ({message})=>{
     
     const arts =[

@@ -3,7 +3,7 @@ const discord = require ('discord.js')
 module.exports ={
   aliases:['pfp'],
   category: 'Social',
-  description: 'Shows User Avatar',
+  description: 'Displays User Avatar',
   callback: async ({message, args}) =>{
     
     const user = message.mentions.users.first() || message.author

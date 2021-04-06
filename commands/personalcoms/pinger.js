@@ -4,6 +4,7 @@ const discord = require('discord.js');
 module.exports={
   ownerOnly: true,
   aliases: ['spam'],
+  category:'OwnerPersonalCommands',
   description: "You don't want to spam ping your friends do you?",
   
   callback: async({client, message, args, interval})=>{

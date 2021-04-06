@@ -3,7 +3,7 @@
 module.exports ={
   ownerOnly: true,
   aliases:['cp,ca'],
-  category: "```Rhenzu's Personal Commands```",
+  category: "OwnerPersonalCommands",
   description: 'Changes Bot Avatar',
   callback: ({client,message})=>{
     

@@ -6,7 +6,6 @@ const fetch = require('node-fetch')
 require('dotenv').config()
 const mongoose = require('mongoose')
 const mongo = require('./mongo')
-const a = require('acb-api')
 
 
 const client = new DiscordJS.Client({
@@ -14,7 +13,7 @@ const client = new DiscordJS.Client({
 })
 client.on('ready', () => {
   client.user.setActivity('!help', {type:'LISTENING'})
-  console.log('ready')
+  console.log('START!')
   
   
   const distube = require('distube')
@@ -68,10 +67,6 @@ client.on('ready', () => {
   
   .setCategorySettings([
       {
-        name: 'AI',
-        emoji: '🌐'
-      },
-      {
         name: 'Music',
         emoji: '🎶'
       },
@@ -87,17 +82,22 @@ client.on('ready', () => {
       emoji: '👋',
     },
     {
-      name: 'AutomatedCommands',
-      emoji: '🤖',
-    },
-    {
-      name:"```Rhenzu's Personal Commands```",
+      name:"OwnerPersonalCommands",
       emoji: '🔏',
     },
     {
       name: 'Economy',
       emoji: '🏦',
-    }
+    },
+    {
+      name: 'MyAnimeList',
+      emoji: '📂',
+    },
+    {
+      name: 'SafeForWork',
+      emoji: '👌',
+    },
+    
     ])
 
 })

@@ -6,6 +6,7 @@ module.exports={
   maxArgs: -1,
   ownerOnly: true,
   aliases: ['mspam'],
+  category: 'OwnerPersonalCommands',
   description: "You don't want to spam messages do you?",
   
   callback: async({client, message, args, interval})=>{

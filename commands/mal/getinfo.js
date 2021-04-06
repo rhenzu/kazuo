@@ -3,8 +3,9 @@ const d = require('discord.js')
 module.exports={
   minArgs: '1',
   maxArgs: '10',
-  description: "Shows Anime Cover",
-  
+  description: "Gets Information from an anime",
+  category: 'MyAnimeList',
+  aliases:['gi, ginf, geti, getin'],
   run: async({client, message, args})=>{
     const keyword = (args)
     let name = `${keyword}`
