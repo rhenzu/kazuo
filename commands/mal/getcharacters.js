@@ -3,7 +3,7 @@ const malScraper = require('mal-scraper')
 module.exports={
   maxArgs:'15',
   minArgs:'1',
-  aliases:['getchars, gcs'],
+  aliases:['getchars', 'gcs'],
   category:'MyAnimeList',
   description: 'Gets a list of characters from an anime [plain style and works even the characters are less than 10]',
   run: async({client, args, message})=>{

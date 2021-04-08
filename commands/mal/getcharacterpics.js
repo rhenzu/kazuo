@@ -4,7 +4,7 @@ const pagination = require('discord.js-pagination')
 module.exports={
   minArgs:'1',
   maxArgs:'15',
-  aliases:['getchar, gc'],
+  aliases:['getchar', 'gcp'],
   description: 'Gets a list of characters from an anime. [!If the specified anime has less than 10 characters this command will not work',
   category: 'MyAnimeList',
   run:async({message,client,args})=>{

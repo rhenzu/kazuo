@@ -1,11 +1,12 @@
 const malScraper = require('mal-scraper')
 const d = require('discord.js')
+const pag = require('discord.js-pagination')
 module.exports={
   minArgs: '1',
   maxArgs: '10',
   description: "Gets Information from an anime",
   category: 'MyAnimeList',
-  aliases:['gi, ginf, geti, getin'],
+  aliases:['gi','ginf','geti','getin'],
   run: async({client, message, args})=>{
     const keyword = (args)
     let name = `${keyword}`
@@ -20,6 +21,12 @@ malScraper.getInfoFromName(name).then((data) => {
   .setURL(data.url)
   .setThumbnail(data.picture)
   .setDescription (data.synopsis)
+  .setColor('RANDOM')
+  
+  let r = new d.MessageEmbed()
+  .setTitle(data.title)
+  .setURL(data.url)
+  .setThumbnail(data.picture)
   .setImage(data.characters[ind].picture)
   .addFields(
     {name: 'Episodes', value: `${data.episodes}`},
@@ -36,10 +43,10 @@ malScraper.getInfoFromName(name).then((data) => {
   )
   .setColor('RANDOM')
   
-
+const pages =[e, r]
+  const emoji =['⬇️','⬆️']
   
-  
-  message.channel.send(e)
+  pag(message, pages, emoji)
 
 
 })
