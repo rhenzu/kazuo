@@ -15,7 +15,7 @@ module.exports={
     ]
     const r = Math.floor(Math.random()*arts.length)
     console.log(r)
-    if([r] === 1){
+    if(r==14){
       message.reply('Congrats you Found the Sushi Art')
       message.channel.send(arts[r])
     }else{

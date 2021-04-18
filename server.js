@@ -17,7 +17,7 @@ client.on('ready', () => {
   
   
   const distube = require('distube')
-  client.distube = new distube(client, {searchSongs: false, emitNewSongOnly: true, leaveOnFinish: false, leaveOnEmpty: true, youtubeDL: true, updateYouTubeDL: true})
+  client.distube = new distube(client, {searchSongs: false, emitNewSongOnly: true, leaveOnFinish: true, leaveOnEmpty: true, youtubeDL: true, updateYouTubeDL: true})
     
     
  const status = (queue) => `Volume: \`${queue.volume}%\` | Filter: \`${queue.filter || "Off"}\` | Loop: \`${queue.repeatMode ? queue.repeatMode == 2 ? "All Queue" : "This Song" : "Off"}\` | Autoplay: \`${queue.autoplay ? "On" : "Off"}\``;
@@ -52,7 +52,7 @@ client.on('ready', () => {
   .on("addList", (message, queue, playlist) => message.channel.send(
         `Added \`${playlist.name}\` playlist (${playlist.songs.length} songs) to queue\n${status(queue)}`
     ))
-  .on("empty", message=>message.channel.send("Channel is empty, leaving channel."))
+  .on("empty", message => message.channel.send("Channel is empty, leaving channel."))
        
   
   

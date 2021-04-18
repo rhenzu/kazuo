@@ -26,11 +26,9 @@
     "@distube/ytsr": "^1.0.8",
     "ytdl-core": "^4.4.5",
     "genius-lyrics-api": "^3.0.6",
-    "anime-character-random": "^1.0.2",
     "mal-scraper": "^2.11.3",
     "discord.js-pagination": "^1.0.1",
     "akaneko": "^4.5.3",
-    "html-metadata-parser": "^1.0.3",
     "jikan-node": "^1.2.1"
   },
   "engines": {
